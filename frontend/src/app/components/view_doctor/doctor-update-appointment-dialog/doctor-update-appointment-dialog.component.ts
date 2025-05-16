@@ -7,8 +7,7 @@ import { ConfigService } from '../../../services/config.service';
 @Component({
   selector: 'app-doctor-update-appointment-dialog',
   imports: [CommonModule, MatDialogModule, UpdateDialogComponent],
-  templateUrl: './doctor-update-appointment-dialog.component.html',
-  styleUrl: './doctor-update-appointment-dialog.component.css'
+  templateUrl: './doctor-update-appointment-dialog.component.html'
 })
 export class DoctorUpdateAppointmentDialogComponent {
   configService = inject(ConfigService);

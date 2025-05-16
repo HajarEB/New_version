@@ -41,7 +41,7 @@ app = FastAPI(lifespan=lifespan,
                 openapi_url=None if is_production_mode else "/openapi.json" #block access to "/openapi.json" in production mode
             )
 
-class secureHeader(BaseHTTPMiddleware):
+class secure_header(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
         response: Response = await call_next(request)
         if request.url.path == "/docs":  # to allow only FASTAPI UI
@@ -62,7 +62,7 @@ class secureHeader(BaseHTTPMiddleware):
         return response
 
 
-app.add_middleware(secureHeader)
+app.add_middleware(secure_header)
  
 
 

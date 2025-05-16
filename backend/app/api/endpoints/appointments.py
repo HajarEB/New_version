@@ -3,7 +3,7 @@ from sqlalchemy import or_
 from models.doctor import Doctor
 from database import SessionLocal, get_db
 from sqlalchemy.orm import Session
-from schemas.appointment import  admin_appointment_update, get_available_appointment_by_appointmentId, user_appointment_update, get_available_appointment, create_new_appointment
+from schemas.appointment import  admin_appointment_update, get_available_appointment_by_appointment_id, user_appointment_update, get_available_appointment, create_new_appointment
 from models.appointment import Appointment
 from models.user import User
 from models.patient import Patient
@@ -282,7 +282,7 @@ def combine_date_time_slot(date: datetime, timeslot: int) -> datetime:
 
 @router.post("/getAvailableAppointmentByAppointmentId")
 def get_available_appointment_by_appointment_id(
-    data: get_available_appointment_by_appointmentId, 
+    data: get_available_appointment_by_appointment_id, 
     db: Session = Depends(get_db)):
     current_appointment = db.query(Appointment).filter(Appointment.appointment_id ==data.appointment_id).first()
     if not current_appointment:
@@ -384,9 +384,8 @@ def create_appointment(user_data: create_new_appointment, db: Session = Depends(
 
     # check if expiry status is before appointment -> invalid appointment
     patient_expired_date = get_patient_status_expiry_by_id(patient_id, db)
-    if patient_expired_date:
-        if date_time > patient_expired_date:
-            return expired_before_appoinment
+    if patient_expired_date and date_time > patient_expired_date:
+        return expired_before_appoinment
     
     # check if that slot is passed
     if date_time < datetime.now():

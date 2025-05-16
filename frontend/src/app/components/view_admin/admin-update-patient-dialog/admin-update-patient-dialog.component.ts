@@ -6,8 +6,7 @@ import { ConfigService } from '../../../services/config.service';
   selector: 'app-admin-update-patient-dialog',
   imports: [MatDialogModule, UpdateDialogComponent],
   standalone: true,
-  templateUrl: './admin-update-patient-dialog.component.html',
-  styleUrl: './admin-update-patient-dialog.component.css'
+  templateUrl: './admin-update-patient-dialog.component.html'
 })
 export class AdminUpdatePatientDialogComponent {
 

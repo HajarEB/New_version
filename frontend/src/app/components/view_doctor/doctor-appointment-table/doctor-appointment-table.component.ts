@@ -8,8 +8,7 @@ import {CommonModule } from '@angular/common';
 @Component({
   selector: 'app-doctor-appointment-table',
   imports: [InfoTableComponent, CommonModule],
-  templateUrl: './doctor-appointment-table.component.html',
-  styleUrl: './doctor-appointment-table.component.css'
+  templateUrl: './doctor-appointment-table.component.html'
 })
 export class DoctorAppointmentTableComponent implements OnInit{
   constructor(public dialog: MatDialog, private configService: ConfigService) {}

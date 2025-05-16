@@ -20,7 +20,7 @@ class get_available_appointment(BaseModel):
     specialty: str
     date: date
     
-class get_available_appointment_by_appointmentId(BaseModel):
+class get_available_appointment_by_appointment_id(BaseModel):
     appointment_id: int
     date: date
     

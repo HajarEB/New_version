@@ -9,8 +9,7 @@ import {CommonModule } from '@angular/common';
   selector: 'app-admin-admin-table',
   imports: [InfoTableComponent, CommonModule],
   standalone: true,
-  templateUrl: './admin-admin-table.component.html',
-  styleUrl: './admin-admin-table.component.css'
+  templateUrl: './admin-admin-table.component.html'
 })
 export class AdminAdminTableComponent implements OnInit{
   constructor(public dialog: MatDialog, private configService: ConfigService) {}

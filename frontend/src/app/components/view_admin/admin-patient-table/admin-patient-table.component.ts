@@ -10,8 +10,7 @@ import { InfoTableComponent } from '../../info-table/info-table.component';
   selector: 'app-admin-patient-table',
   imports: [InfoTableComponent, CommonModule],
   standalone: true,
-  templateUrl: './admin-patient-table.component.html',
-  styleUrl: './admin-patient-table.component.css'
+  templateUrl: './admin-patient-table.component.html'
 })
 export class AdminPatientTableComponent implements OnInit{
 

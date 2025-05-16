@@ -6,8 +6,7 @@ import { ConfigService } from '../../../services/config.service';
 @Component({
   selector: 'app-admin-update-doctor-dialog',
   imports: [MatDialogModule, UpdateDialogComponent],
-  templateUrl: './admin-update-doctor-dialog.component.html',
-  styleUrl: './admin-update-doctor-dialog.component.css'
+  templateUrl: './admin-update-doctor-dialog.component.html'
 })
 export class AdminUpdateDoctorDialogComponent implements OnInit {
 

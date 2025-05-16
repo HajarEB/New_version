@@ -8,8 +8,7 @@ import {CommonModule } from '@angular/common';
 @Component({
   selector: 'app-patient-appointment-table',
   imports: [InfoTableComponent, CommonModule],
-  templateUrl: './patient-appointment-table.component.html',
-  styleUrl: './patient-appointment-table.component.css'
+  templateUrl: './patient-appointment-table.component.html'
 })
 
 

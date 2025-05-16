@@ -6,8 +6,7 @@ import { ConfigService } from '../../../services/config.service';
   selector: 'app-admin-update-admin-dialog',
   imports: [MatDialogModule, UpdateDialogComponent],
   standalone: true,
-  templateUrl: './admin-update-admin-dialog.component.html',
-  styleUrl: './admin-update-admin-dialog.component.css'
+  templateUrl: './admin-update-admin-dialog.component.html'
 })
 export class AdminUpdateAdminDialogComponent {
     configService = inject(ConfigService);
