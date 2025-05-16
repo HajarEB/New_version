@@ -28,6 +28,22 @@ export class SignUpComponent{
   onSignUp(){
 
     if (this.registerForm.username != "", this.registerForm.password != ""){
+          const consent = window.confirm(
+    `By registering, You Allow us To:
+  1. Use Your Data For Medical Purposes Only
+  2. Share Your Data With Your Doctor And Supporting Staff
+  3. Store And Process Your Data Securely
+
+    ***Note: You Are Allowed To Withdraw Consent or Update Your Personal Data Through Profile Page At Any Time
+
+  For Data Regulation Inquires, Contact: dt_center@hospitalapp.ma`
+  );
+
+  if (!consent) {
+    alert('You Must Accept GDPR Consent To Register.');
+    this.router.navigateByUrl("login");
+    return;
+  }
       const formValue = this.registerForm;
       this.configService.register(formValue).subscribe((res:any)=>{
         alert(res.message)
@@ -46,21 +62,7 @@ export class SignUpComponent{
     } else {
       alert("Username and Password Required")
     }
-    const consent = window.confirm(
-    `By registering, You Allow us To:
-  1. Use Your Data For Medical Purposes Only
-  2. Share Your Data With Your Doctor And Supporting Staff
-  3. Store And Process Your Data Securely
 
-    ***Note: You Are Allowed To Withdraw Consent or Update Your Personal Data Through Profile Page At Any Time
-
-  For Data Regulation Inquires, Contact: dt_center@hospitalapp.ma`
-  );
-
-  if (!consent) {
-    alert('You Must Accept GDPR Consent To Register.');
-    return;
-  }
 
   }
 
