@@ -5,7 +5,7 @@ This is a secure Hospital Application for Booking, Viewing and Managing Appointm
 - **Frontend**: Angular with TypeScript, HTML and CSS
 - **Database**: SQLite
 
-This application can be run manually on local machine or by using **Docker containerization**. As for checking security practices, it also includes **Jenkins** pipelines for testing, results can be found at `security test` folder.
+This application can be run manually on local machine or by using **Docker containerization**. As for checking security practices, it also includes **Jenkins** pipelines for testing, results can be found in `security test` folder.
 
 ## Features
 - Register and login with strong password using OAuth2 and JWT
