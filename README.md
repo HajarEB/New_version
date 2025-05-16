@@ -5,7 +5,7 @@ This is a secure Hospital Application for Booking, Viewing and Managing Appointm
 - **Frontend**: Angular with TypeScript, HTML and CSS
 - **Database**: SQLite
 
-This application can be run manually on local machine or by using **Docker containerization**. As for checking security practices, it also includes **Jenkins** pipelines for testing
+This application can be run manually on local machine or by using **Docker containerization**. As for checking security practices, it also includes **Jenkins** pipelines for testing, results can be found at `security test` folder.
 
 ## Features
 - Register and login with strong password using OAuth2 and JWT
@@ -14,6 +14,7 @@ This application can be run manually on local machine or by using **Docker conta
 - Password and sensitive data encryption on Database
 - Secure communication using HTTPS
 - Input validation and error handling
+- User's consent form
 
 ## Prerequisites
 - Requires
@@ -23,11 +24,11 @@ This application can be run manually on local machine or by using **Docker conta
 ## Setup
 1. Clone the repository
   ```bash
-  git clone https://github.com/HajarEB/hospitalApp.git
+  git clone https://github.com/HajarEB/Secure_Programming_Project.git
   ```
 2. Navigate to backend folder
   ```bash
-  cd hospitalApp/backend
+  cd Secure_Programming_Project/backend
   ```
 3. Configure .env file
   ```bash
@@ -56,12 +57,12 @@ This application can be run manually on local machine or by using **Docker conta
   ```
 
 ### Option 2: Use Docker
-- Ensure your are in the root folder `hospitalApp`
+- Ensure your are in the root folder `Secure_Programming_Project`
 - Run docker with this command:
   ```bash
-  docker-compose up --build
+  docker compose up --build
   ```
 
 ## Usage
 - Open `https://localhost:4200` in your browser
-- Login with default admin by **admin:admin** or register as new user
+- Login with default admin by **admin/admin** or register as a new user
