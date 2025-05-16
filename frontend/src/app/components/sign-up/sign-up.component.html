@@ -1,0 +1,48 @@
+<div class="main-signup">
+  <div class="container">
+    <h2>Register new account</h2>
+
+    <form class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Username</label>
+          <input class="form-control" type="text" name="username" [(ngModel)]="registerForm.username">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="registerForm.password">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">First name</label>
+            <input type="text" class="form-control" name="first_name" [(ngModel)]="registerForm.first_name">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Last name</label>
+            <input type="text" class="form-control" name="last_name" [(ngModel)]="registerForm.last_name">
+          </div>
+        <div class="col-12">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]="registerForm.email" placeholder="abc@gmail.com">
+          </div>
+        <div class="col-12">
+          <label class="form-label">Phone number</label>
+          <input type="text" class="form-control" name="phone_number" [(ngModel)]="registerForm.phone_number" placeholder="+358 123456789">
+        </div>
+        <div class="col-12" *ngIf="isWeakPassword">
+          <small style="color: red; font-size:0.9rem;">
+            Password should meet criteria such as:<br>
+              - Minimum length: 8 characters<br>
+              - At least one uppercase<br>
+              - At least one lowercase<br>
+              - At least one digit<br>
+              - At least one special character (e.g., !#$%^*)<br>
+          </small>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+            <div class="col-3">
+                <button type="submit" class="btn btn-primary" (click)="onSignUp()">Sign up</button>
+            </div>
+        </div>
+      </form>
+</div>
+</div>
+

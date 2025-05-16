@@ -1,0 +1,43 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #e8063a;
+  color: white;
+  line-height: 1.6;
+}
+
+.navbar-brand{
+  margin-left: 10px;
+  margin-right: 40px;
+}
+.nav-link{
+  font-size: 18px;
+}
+.nav-item {
+  margin-left: 30px;
+
+}
+.container-fluid {
+  padding-bottom: 40px;
+  padding-top:10px;
+}
+
+.btn-light {
+  height: 40px;
+  width: 100px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  padding: 20px;
+}
+.nav-item.dropdown .dropdown-menu {
+  display: none;
+  padding: 10px;
+  position: absolute;
+}
+

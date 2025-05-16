@@ -1,0 +1,29 @@
+.page {
+  margin:10% 20% 10% 20%;
+  align-items: center;
+  border: 2px solid #38021c;
+  background-color: #d0bac5;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  margin-top: 5%;
+  font-weight: bold;
+}
+
+h1 {
+  color: #38021c;
+  font-size: 36px;
+}
+
+h2 {
+  color: #740f3f;
+  font-size: 28px;
+}
+
+h3 {
+  color: #bd2d73;
+  font-size: 24px;
+  margin-bottom: 5%;
+}

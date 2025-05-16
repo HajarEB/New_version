@@ -1,0 +1,20 @@
+<main class="main-login">
+    <div class="container ">
+        <p class="headline text-center">Login</p>
+        <div>
+            <div class="box">
+                <p>Username</p>
+                <div><input type="text" [(ngModel)]="apiObj.username" name="" id="" placeholder="Enter your Username"></div>
+            </div>
+        </div>
+        <div>
+            <div class="box">
+                <p>Password</p>
+                <div><input type="password" [(ngModel)]="apiObj.password" name="" id="" placeholder="Enter your Password"></div>
+            </div>
+        </div>
+        <button class="loginBtn" (click)="onLogin()">Login</button>
+        <p class="text">Don't have an account?<a href="signup">Sign up</a></p>
+    </div>
+</main>
+<router-outlet></router-outlet>

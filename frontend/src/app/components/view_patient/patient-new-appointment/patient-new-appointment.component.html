@@ -1,0 +1,89 @@
+<div class="main-new-appointment">
+    <div class="container">
+      <h2>Book new appointment</h2>
+        <div class="row d-flex justify-content-center">
+            <div class="col-5">
+                <label for="specialty">Choose Specialty</label>
+                <select name="selectedSpecialty" [(ngModel)]="checkForm.specialty">
+                    <option value="" disabled>-Select a specialty-</option>
+                    @for (item of specialtyList; track $index){
+                        <option [value]="item" >{{item}}</option>
+                    }
+                </select>
+            </div>
+            <div class="col-5">
+                <label for="specialty">Choose Date</label>
+                <input type="date" [min]="today" [(ngModel)]="checkForm.date" [(ngModel)]="createForm.date">
+
+            </div>
+        </div>
+        <br>
+        <div>
+          <div class="text-center mt-3">
+            <button (click)="getAvailableAppointment()" class="btn btn-secondary">Check available appointment</button>
+          </div>
+            @if (clickedCheck == true){
+                <table class="table table-bordered mt-3">
+                    <caption>Appointment Schedule</caption>
+                    <thead>
+                        <tr>
+                            <th>Doctor name</th>
+                            <th>Slot 1 - 8:00</th>
+                            <th>Slot 2 - 11:00</th>
+                            <th>Slot 3 - 14:00</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (doctor of doctorsAvailable; track $index){
+                            <tr>
+                                <td>{{doctor.doctor_name}}</td>
+                                <td>@if (doctor.time_slot[1] == true) {vacant} @else {reserved}</td>
+                                <td>@if (doctor.time_slot[2] == true) {vacant} @else {reserved}</td>
+                                <td>@if (doctor.time_slot[3] == true) {vacant} @else {reserved}</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            }
+            <div class="row" for="confirmBooking">
+                <h5>Your new appointment</h5>
+                <div class="row">
+                    <label>Specialty:</label>
+                    <span>{{checkForm.specialty}}</span>
+                    <label>Date:</label>
+                    <span>{{checkForm.date}}</span>
+                    <label>Doctor name:</label>
+                    <span>
+                        <select name="doctor_id" [(ngModel)]="createForm.doctor_id">
+                            <option value="" disabled >-Select a doctor-</option>
+                            @for (doctor of doctorsAvailable; track $index){
+                                <option [value]="doctor.doctor_id" >{{doctor.doctor_name}}</option>
+                            }
+                        </select>
+                    </span>
+
+                    <label>Slot:</label>
+                    <span>
+                        <select name="time_slot" [(ngModel)]="createForm.time_slot">
+                            <option value="" disabled>-Select a vacant slot-</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </span>
+                    <label>Description:</label>
+                    <span>
+                        <input type="text" [(ngModel)]="createForm.description" placeholder="Optional">
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-danger col-3 mt-3" (click)="onCreate()">Create</button>
+        </div>
+
+  </div>
+  </div>
+

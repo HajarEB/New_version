@@ -1,0 +1,49 @@
+<form #form="ngForm" autocomplete="off" (ngSubmit)="updateData(form)">
+  <div class="form-group" *ngFor="let field of fields">
+    <label [for]="field.name">{{ field.label}}</label>
+
+      <select  *ngIf= "(field.name === 'status') || (field.name === 'time_slot') ; else normalInput"
+        class="form-control"
+        [id]="field.name"
+        [name]="field.name"
+        [(ngModel)]="formData[field.name]"
+      >
+      <ng-container *ngIf="field.name === 'status' && this.userRole !== 'patient'">
+        <option *ngFor="let status of allowed_status" [value]="status">
+          {{ status }}
+        </option>
+      </ng-container>
+      <ng-container *ngIf="field.name === 'status' && this.userRole === 'patient'">
+        <option *ngFor="let status of patient_allowed_status" [value]="status">
+          {{ status }}
+        </option>
+      </ng-container>
+
+        <ng-container *ngIf="field.name === 'time_slot'">
+          <option *ngFor="let slot of filteredSlots" [value]="slot">
+               {{ slotCorrespondingTime[slot] || slot }}
+          </option>
+        </ng-container>
+      </select>
+
+    <ng-template #normalInput>
+
+      <input
+        [type]="field.type"
+        class="form-control"
+        [id]="field.name"
+        [name]="field.name"
+        [(ngModel)]="formData[field.name]"
+        [placeholder]="field.placeholder"
+        (ngModelChange)="onFieldChange(field.name, $event)"
+        [readonly]="field.name === 'patient_name' || field.name === 'doctor_name'"
+        [min]="field.type === 'date' ? today : null"
+      />
+
+
+    </ng-template>
+  </div>
+
+  <button class="btn btn-danger" type="submit">Confirm Updates</button>
+</form>
+

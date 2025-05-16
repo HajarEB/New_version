@@ -1,0 +1,19 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.btn {
+  display: block;
+  margin: 2rem 0;
+  width: 150px;
+  border: 2px solid rgb(100, 6, 6);
+  border-radius: 5px;
+  cursor: pointer;
+}

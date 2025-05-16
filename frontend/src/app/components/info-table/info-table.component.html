@@ -1,0 +1,60 @@
+
+
+
+<div class="filter_container">
+  <i (click)="assignUser()" class="add-button">
+    <mat-icon>add</mat-icon>
+  </i>
+  <input type="text"
+    placeholder="Search..."
+    [(ngModel)]="filterText"
+    (input)="filterData()"
+    class="filter_box">
+
+    <i *ngIf="!isCollapsed" (click)="collapseView()" class="remove-button">
+      <mat-icon>remove</mat-icon>
+    </i>
+    <i *ngIf="isCollapsed" (click)="maximizeView()" class="extend-button">
+      <mat-icon>arrow_drop_down</mat-icon>
+    </i>
+</div>
+
+<table mat-table [dataSource]="filteredData" class="mat-elevation-z8">
+   <ng-container *ngFor="let col of columns" [matColumnDef]="col">
+   <th mat-header-cell *matHeaderCellDef>{{ col | titlecase }}</th>
+     <td mat-cell *matCellDef="let element">
+      <ng-container *ngIf="col === 'actions' &&
+        ((element.status != null && element.status !== 'CANCELLED' && element.status !== 'COMPLETED') ||
+        (element.status_expiry === null))">
+        <i mat-icon-button color="primary" (click)="updateDialog(element)">
+          <mat-icon>edit</mat-icon>
+        </i>
+      </ng-container>
+      <ng-container *ngIf="col === 'date'" >
+        {{ element['date_time'] | date }}
+      </ng-container>
+      <ng-container *ngIf="col === 'time'" >
+        {{ element['date_time'] | date : 'shortTime'}}
+      </ng-container>
+      <ng-container *ngIf="col === 'status_expiry'; else defaultCell" >
+        {{ element[col] | date: 'medium' }}
+      </ng-container>
+
+      <ng-template #defaultCell>
+        {{ element[col] }}
+      </ng-template>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr mat-row
+    *matRowDef="let row; columns: columns;"
+    [hidden]="
+     isCollapsed &&(
+        (columns.includes('status') && (row.status === 'CANCELLED' || row.status === 'COMPLETED')) ||
+        (columns.includes('status_expiry') && row.status_expiry !== null)
+      )">
+  </tr>
+</table>
+
+
+

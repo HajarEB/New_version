@@ -1,0 +1,34 @@
+
+  <form #form="ngForm" autocomplete="off"  (ngSubmit)="updateProfile(form)">
+    <div class="form-group" *ngFor="let field of fields">
+      <label [for]="field.name">{{ field.label }}</label>
+      <select
+          *ngIf="field.name === 'doctor_specialty'; else normalInput"
+          class="form-control"
+          [id]="field.name"
+          [name]="field.name"
+          [(ngModel)]="formData[field.name]"
+        >
+          <option value="" disabled>Select a specialty</option>
+          <option *ngFor="let specialty of specialties" [value]="specialty">
+            {{ specialty }}
+          </option>
+      </select>
+      <ng-template #normalInput>
+          <input
+            [type]="field.type"
+            class="form-control"
+            [id]="field.name"
+            [name]="field.name"
+            [(ngModel)]="formData[field.name]"
+            [placeholder]="field.placeholder"
+            [readonly]="field.name === 'role'"
+
+          />
+      </ng-template>
+
+      </div>
+
+      <button class="btn btn-danger" type="submit">Update Profile</button>
+    </form>
+

@@ -1,0 +1,29 @@
+
+<div class = "content">
+  <p *ngIf="isPatient" class="title">Assign Patient</p>
+
+  <p *ngIf="isDoctor"class="title">Assign Doctor</p>
+
+  <p *ngIf="isAdmin" class="title">Assign Admin</p>
+
+    <mat-form-field>
+      <mat-label>Select User</mat-label>
+
+      <mat-select [(value)]="selectedUserID">
+        <mat-option *ngFor="let field of dataSource" [value]="field.user_id">
+          {{ field.full_name}}
+        </mat-option>
+        <mat-option *ngIf="!dataSource || dataSource.length === 0" disabled>
+          No User to Assign
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button (click)="assignUser()" class="btn">Assign</button>
+</div>
+
+
+
+
+
+

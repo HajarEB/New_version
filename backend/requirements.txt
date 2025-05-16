@@ -1,0 +1,6 @@
+fastapi[standard]
+sqlalchemy==2.0.39
+python-jose[cryptography]
+bcrypt==4.3.0
+pydantic-settings
+APScheduler==3.11.0

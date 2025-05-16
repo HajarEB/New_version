@@ -1,0 +1,18 @@
+services:
+  angular-frontend:
+    build: ./frontend
+    container_name: angular-frontend
+    volumes:
+      - ./Certificate:/hospitalApp/Certificate:ro
+    ports: 
+      - 4200:4200
+    restart: on-failure
+  
+  fastapi-backend:
+    build: ./backend
+    container_name: fastapi-backend
+    volumes:
+      - ./Certificate:/hospitalApp/Certificate:ro
+    ports:
+      - 8432:8432
+    restart: on-failure
